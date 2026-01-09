@@ -1,5 +1,5 @@
 # 1. Go to your project folder
-cd "C:\Users\Desktop name(SHILA MITRA)\OneDrive\Desktop\medical scan project\backend"
+cd "C:\Users\Desktop name\OneDrive\Desktop\medical scan project\backend"
 
 # 2. Create virtual environment
 python -m venv mediscan_env
@@ -18,5 +18,6 @@ pip install python-dotenv==1.0.0
 
 
 # 5. Run the application
+
 
 python app.py
