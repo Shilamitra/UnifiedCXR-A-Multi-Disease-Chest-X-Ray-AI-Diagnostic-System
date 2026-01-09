@@ -8,29 +8,32 @@ This project was developed as part of the Data Analytics (CS61061) course at IIT
 
 The project must follow the exact folder structure below for proper execution:
 
+
 medical-scan-project/
-│
-├── backend/
-│   ├── mediscan_env/          # Virtual environment (do not upload to GitHub)
-│   ├── models/
-│   │   ├── efficientnet_cardiomegaly.h5
-│   │   ├── tb_detector.h5
-│   │   └── vgg_unfrozen.h5
-│   │
-│   ├── app.py                 # Flask backend server
-│   ├── utils.py               # Utility & preprocessing functions
-│   ├── test_model.py          # Model testing script
-│   ├── requirements.txt       # Python dependencies
-│
-├── frontend/
-│   ├── index.html             # Frontend UI
-│   ├── script.js              # Frontend logic
-│   └── styles.css             # Frontend styling
-│
-├── test_dataset/              # Sample images for testing
-├── run.txt                    # Setup & run instructions
-├── setup.bat                  # Windows setup automation (optional)
-└── .vscode/                   # Editor configuration (optional)
+
+backend/ mediscan_env/
+  
+  models/
+    efficientnet_cardiomegaly.h5
+    tb_detector.h5
+    vgg_unfrozen.h5
+    
+  app.py
+  utils.py
+  test_model.py
+  requirements.txt
+
+
+frontend/
+  index.html
+  script.js
+  styles.css
+
+test_dataset/
+run.txt
+setup.bat
+.vscode/
+
 
 
 ⚠️ Important:
