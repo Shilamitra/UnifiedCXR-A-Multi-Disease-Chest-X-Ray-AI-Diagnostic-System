@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unifiedCXR | Automated Chest X-Ray Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-lungs"></i>
+                    <h1>unifiedCXR</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#diseases">Diseases</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Automated Chest X-Ray Analysis</h2>
+            <p>Upload any chest X-ray and unifiedCXR will automatically screen for Pneumonia, Tuberculosis, and Cardiomegaly with AI-powered accuracy.</p>
+            <div class="disease-tags">
+                <span class="disease-tag pneumonia"><i class="fas fa-lungs"></i> Pneumonia</span>
+                <span class="disease-tag tb"><i class="fas fa-virus"></i> Tuberculosis</span>
+                <span class="disease-tag cardiomegaly"><i class="fas fa-heart"></i> Cardiomegaly</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <section id="dashboard" class="container">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <h2 class="dashboard-title">Upload Chest X-Ray for Analysis</h2>
+                <div class="scanning-info">
+                    <i class="fas fa-microscope"></i> Auto-screening 3 diseases simultaneously
+                </div>
+            </div>
+
+            <!-- Upload Area -->
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-file-medical-alt"></i>
+                <h3>Drag & Drop or Click to Upload</h3>
+                <p>Supported formats: JPG, PNG | Max size: 10MB</p>
+                <input type="file" id="fileInput" accept=".jpg,.jpeg,.png" style="display: none;">
+                <button class="upload-btn" id="uploadBtn">
+                    <i class="fas fa-cloud-upload-alt"></i> Select X-Ray Image
+                </button>
+                <div class="image-preview" id="imagePreview"></div>
+            </div>
+
+            <button class="analyze-btn" id="analyzeBtn" style="display: none;">
+                <i class="fas fa-search-medical"></i> Start Comprehensive Analysis
+            </button>
+
+            <!-- NEW: Clear Button -->
+            <button class="clear-btn" id="clearBtn" style="display: none;">
+                <i class="fas fa-times"></i> Clear X-Ray
+            </button>
+
+            <!-- Overall Results -->
+            <div class="overall-result" id="overallResult" style="display: none;">
+                <div class="result-header" id="overallHeader">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span id="overallMessage">Initializing comprehensive analysis...</span>
+                </div>
+                <div class="result-summary" id="resultSummary"></div>
+            </div>
+
+            <!-- Detailed Results -->
+            <div class="detailed-results" id="detailedResults" style="display: none;">
+                <h3><i class="fas fa-file-medical"></i> Detailed Analysis Report</h3>
+                <div class="results-grid" id="resultsGrid"></div>
+            </div>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Comprehensive X-Ray Analysis in Progress...</p>
+                <div class="scanning-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">Scanning for multiple pathologies</div>
+                </div>
+                <div class="scanning-diseases">
+                    <span class="scanning-disease"><i class="fas fa-lungs"></i> Pneumonia</span>
+                    <span class="scanning-disease"><i class="fas fa-virus"></i> Tuberculosis</span>
+                    <span class="scanning-disease"><i class="fas fa-heart"></i> Cardiomegaly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diseases Section -->
+    <section id="diseases" class="diseases">
+        <div class="container">
+            <h2>Diseases We Detect</h2>
+            <div class="diseases-grid">
+                <div class="disease-card">
+                    <div class="disease-icon pneumonia">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <h3>Pneumonia</h3>
+                    <p>Infection that inflames air sacs in one or both lungs, which may fill with fluid.</p>
+                    <div class="risk-level high">High Risk</div>
+                    <!-- NEW: Know More Button -->
+                    <a href="https://en.wikipedia.org/wiki/Pneumonia" target="_blank" class="know-more-btn">Know More</a>
+                </div>
+                <div class="disease-card">
+                    <div class="disease-icon tb">
+                        <i class="fas fa-virus"></i>
+                    </div>
+                    <h3>Tuberculosis</h3>
+                    <p>Serious infectious disease that mainly affects the lungs, caused by bacteria.</p>
+                    <div class="risk-level high">High Risk</div>
+                    <!-- NEW: Know More Button -->
+                    <a href="https://en.wikipedia.org/wiki/Tuberculosis" target="_blank" class="know-more-btn">Know More</a>
+                </div>
+                <div class="disease-card">
+                    <div class="disease-icon cardiomegaly">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Cardiomegaly</h3>
+                    <p>Enlarged heart condition often indicating underlying cardiovascular issues.</p>
+                    <div class="risk-level medium">Medium Risk</div>
+                    <!-- NEW: Know More Button -->
+                    <a href="https://en.wikipedia.org/wiki/Cardiomegaly" target="_blank" class="know-more-btn">Know More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>How unifiedCXR Works</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="feature">
+                        <div class="feature-number">1</div>
+                        <div class="feature-content">
+                            <h3>Upload X-Ray</h3>
+                            <p>Simply upload any standard chest X-ray image in common formats</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-number">2</div>
+                        <div class="feature-content">
+                            <h3>AI Analysis</h3>
+                            <p>Our advanced neural networks simultaneously analyze for 3 critical conditions</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-number">3</div>
+                        <div class="feature-content">
+                            <h3>Comprehensive Report</h3>
+                            <p>Receive detailed findings with confidence levels for each disease</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-lungs"></i>
+                    <h3>unifiedCXR</h3>
+                    <p>AI-Powered Chest X-Ray Analysis</p>
+                </div>
+                <div class="footer-info">
+                     <p class="institute-attribution">Developed by students of the Indian Institute of Technology, Kharagpur</p>
+                    <p>&copy; 2025 unifiedCXR. For educational and clinical research purposes.</p>
+                    <p class="disclaimer">This tool assists healthcare professionals and should not replace medical diagnosis.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
